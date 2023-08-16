@@ -1,5 +1,7 @@
 import { MdHome } from 'react-icons/md'
 import { useRouter } from 'next/router';
+import {useSelector, useDispatch} from 'react-redux';
+import {updateSearchKey, filterMovies} from '../redux/action/movie';
 
 
 
@@ -7,6 +9,12 @@ import { useRouter } from 'next/router';
 function Navbar({ search, title }) {
 
     const router = useRouter();
+    const dispatch = useDispatch();
+
+    const handleSearchChange = (e) => {
+        dispatch(updateSearchKey(e.target.value));
+        dispatch(filterMovies());
+    };
 
     return (
         <nav className="bg-[#fff] p-4 w-full  border flex justify-between drop-shadow-lg fixed z-[500]  " >
@@ -15,7 +23,9 @@ function Navbar({ search, title }) {
                 <input
                     className=" border sm:w-[50%] h-[40px] bg-gray rounded-md px-8 placeholder-[#000] "
                     placeholder="Search"
-                    type="text" >
+                    type="text"
+                    onChange={handleSearchChange}
+                    >
                 </input>
             }
             {
