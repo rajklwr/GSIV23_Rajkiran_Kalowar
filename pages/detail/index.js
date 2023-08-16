@@ -16,18 +16,14 @@ const Detail = () => {
     const [date, setDate] = useState(null)
 
 
-
-
     useEffect(() => {
         getData()
-    }, [])
+    }, [movieId])
 
 
     const getData = () => {
-        const obj = Movies.find(x => x.id = movieId);
-        // console.log("obj :", obj)
+        const obj = Movies.find(x => x.id === movieId);
         const timestamp = obj?.date * 1000; // Convert to milliseconds
-        // console.log("timestamp :", timestamp)
         const date = new Date(timestamp);
 
         const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"];
