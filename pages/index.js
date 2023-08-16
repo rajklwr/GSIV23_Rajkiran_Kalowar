@@ -2,7 +2,7 @@ import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import Navbar from '@/components/navbar'
 import Movie from '@/components/movie'
-import {useSelector, useDispatch} from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -15,21 +15,17 @@ export default function Home() {
     <main
       className={`flex min-h-screen bg-white flex-col items-center p-0 ${inter.className}`}
     >
-      <Navbar 
-      search={true}
+      <Navbar
+        search={true}
       />
-      <div className='w-full flex flex-wrap gap-4 p-4 mt-[70px] justify-center  text-start ' >
-        {
-          MoviesList.map((item, index) => {
-            return (
-              <Movie
-                key={index}
-                item={item}
-              />
-            )
-          })
-        }
-      </div>
+      <div className='p-4 mt-[70px] grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 justify-center'>
+    {
+      MoviesList.map((item, index) => (
+        <Movie key={index} item={item} />
+      ))
+    }
+</div>
+
     </main>
   )
 }
