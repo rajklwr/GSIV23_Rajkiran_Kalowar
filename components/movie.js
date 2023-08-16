@@ -7,11 +7,19 @@ const Movie = ({ item }) => {
     const router = useRouter()
 
     return (
-        <div className="sm:w-[200px] w-[90%] bg-[#9B9B9B] sm:h-[264px] h-[350px] border drop-shadow-lg rounded-lg relative cursor-pointer hover:scale-[1.05] "
+        <div className="sm:w-[200px] w-[300px] bg-[#9B9B9B] sm:h-[264px] h-[350px] border drop-shadow-lg rounded-lg relative cursor-pointer hover:scale-[1.05] "
             onClick={() => {
-                router.push('/detail')
+                router.push({
+                    pathname: '/detail',
+                    query: { movieId: item.id }
+                });
             }}
         >
+            <div className=" h-[240px] sm:h-[189px] " >
+                <img src={item.image} className=" w-[100%] h-[100%] rounded-t-lg " >
+                </img>
+            </div>
+
             <div className="w-full sm:h-[75px] h-[90px] bg-white absolute bottom-0 sm:text-[13px] text-[15px] rounded-b-lg text-[#000] p-1 ">
                 <div className=" flex  justify-between " >
                     <p className="max-w-[50%] truncate font-semibold ">

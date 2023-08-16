@@ -17,7 +17,7 @@ function Navbar({ search, title }) {
     };
 
     return (
-        <nav className="bg-[#fff] p-4 w-full  border flex justify-between drop-shadow-lg fixed z-[500]  " >
+        <nav className="bg-[#fff] h-[70px] p-4 w-full  border flex justify-between drop-shadow-lg fixed z-[500]  " >
             {
                 search &&
                 <input
@@ -30,7 +30,7 @@ function Navbar({ search, title }) {
             }
             {
                 title &&
-                <h1 className=' text-darkgray text-[30px]  ' >{title}</h1>
+                <h1 className=' text-darkgray text-[25px]  ' >{title}</h1>
             }
             <div className="w-[50px] flex items-center justify-center " >
                 <MdHome
