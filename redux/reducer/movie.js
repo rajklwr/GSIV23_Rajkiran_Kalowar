@@ -5,8 +5,8 @@ import {
 } from '../action/movie'
 
 const initialState = {
-    movies: MoviesList,
-    filteredMovies: MoviesList,
+    movies: MoviesList.sort((a, b) => b.date - a.date),
+    filteredMovies: MoviesList.sort((a, b) => b.date - a.date),
     searchKey: ""
 };
 
@@ -16,7 +16,7 @@ const movieReducer = (state = initialState, action) => {
             return { ...state, searchKey: action.payload };
         case FILTERED_MOVIES:
             const filtered = state.movies.filter(movie =>
-                movie.title.toLowerCase().includes(state.searchKey.toLowerCase())
+                movie?.title?.toLowerCase().includes(state.searchKey.toLowerCase())
             );
             return {
                 ...state,

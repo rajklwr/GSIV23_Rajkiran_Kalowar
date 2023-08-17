@@ -15,10 +15,10 @@ const Movie = ({ item }) => {
                 });
             }}
         >
-            <div className=" h-[240px] sm:h-[189px] " >
+            {/* <div className=" h-[240px] sm:h-[189px] " >
                 <img src={item.image} className=" w-[100%] h-[100%] rounded-t-lg " >
                 </img>
-            </div>
+            </div> */}
 
             <div className="w-full sm:h-[75px] h-[90px] bg-white absolute bottom-0 sm:text-[13px] text-[15px] rounded-b-lg text-[#000] p-1 ">
                 <div className=" flex  justify-between " >

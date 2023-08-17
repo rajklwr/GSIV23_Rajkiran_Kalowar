@@ -1,7 +1,7 @@
-import { MdHome } from 'react-icons/md'
+import { MdHome, MdSearch } from 'react-icons/md'
 import { useRouter } from 'next/router';
-import {useSelector, useDispatch} from 'react-redux';
-import {updateSearchKey, filterMovies} from '../redux/action/movie';
+import { useSelector, useDispatch } from 'react-redux';
+import { updateSearchKey, filterMovies } from '../redux/action/movie';
 
 
 
@@ -20,13 +20,20 @@ function Navbar({ search, title }) {
         <nav className="bg-[#fff] h-[70px] p-4 w-full  border flex justify-between drop-shadow-lg fixed z-[500]  " >
             {
                 search &&
-                <input
-                    className=" border sm:w-[50%] h-[40px] bg-gray rounded-md px-8 placeholder-[#000] "
-                    placeholder="Search"
-                    type="text"
-                    onChange={handleSearchChange}
+                <div className='w-full flex relative' >
+                    <div className=' w-[40px] h-[40px] text-darkgray absolute left-0 flex items-center justify-center ' >
+                        <MdSearch
+                            size={25}
+                        />
+                    </div>
+                    <input
+                        className=" border sm:w-[50%] h-[40px] bg-gray text-darkgray rounded-md px-[40px] placeholder-darkgray "
+                        placeholder="Search"
+                        type="text"
+                        onChange={handleSearchChange}
                     >
-                </input>
+                    </input>
+                </div>
             }
             {
                 title &&
